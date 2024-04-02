@@ -32,11 +32,23 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         id: 'bar-chart',
         stacked: false,
         toolbar: {
-          show: true
+          show: true,
+          tools: {
+            download: true,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            reset: true
+            
+          },
+          autoSelected: 'zoom' 
         },
         zoom: {
           enabled: true
-        }
+        },
+        background: 'transparent' 
       },
       responsive: [
         {
@@ -58,7 +70,12 @@ const TotalGrowthBarChart = ({ isLoading }) => {
       },
       xaxis: {
         type: 'category',
-        categories: []
+        categories: [],
+        labels: {
+          style: {
+            colors: '#fff'
+          }
+        }
       },
       legend: {
         show: true,
@@ -67,7 +84,8 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         position: 'bottom',
         offsetX: 20,
         labels: {
-          useSeriesColors: false
+          useSeriesColors: true,
+          colors: '#fff'
         },
         markers: {
           width: 16,
@@ -86,13 +104,21 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         enabled: false
       },
       grid: {
-        show: true
+        show: true,
+        borderColor: '#545454'
+      },
+      theme: {
+        mode: 'dark',
+      },
+      tooltip: {
+        theme: 'dark',
       }
     },
     series: [
-
     ]
-  })
+}
+
+)
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
 
@@ -111,7 +137,6 @@ const TotalGrowthBarChart = ({ isLoading }) => {
     dispatch(GetPopulationData())
       .unwrap()
       .then((res) => {
-        console.log(res);
         const categories = res.data.map(item => item.Year.toString());
         const series = [{
           name: 'Population',

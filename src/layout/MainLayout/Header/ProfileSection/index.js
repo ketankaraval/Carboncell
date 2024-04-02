@@ -53,7 +53,7 @@ const ProfileSection = () => {
 
   const anchorRef = useRef(null);
   const handleLogout = async () => {
-    console.log('Logout');
+    navigate('/')
   };
 
   const handleClose = (event) => {

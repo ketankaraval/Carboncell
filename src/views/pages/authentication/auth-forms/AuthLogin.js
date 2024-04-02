@@ -74,7 +74,7 @@ const FirebaseLogin = ({ ...others }) => {
               size="large"
               variant="outlined"
               sx={{
-                color: 'grey.700',
+                color: 'grey.900',
                 backgroundColor: theme.palette.grey[50],
                 borderColor: theme.palette.grey[100]
               }}
@@ -205,7 +205,7 @@ const FirebaseLogin = ({ ...others }) => {
             <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
               <FormControlLabel
                 control={
-                  <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />
+                  <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" style={{color : '#249837'}} />
                 }
                 label="Remember me"
               />

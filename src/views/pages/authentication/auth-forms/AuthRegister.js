@@ -82,7 +82,7 @@ const FirebaseRegister = ({ ...others }) => {
               onClick={googleHandler}
               size="large"
               sx={{
-                color: 'grey.700',
+                color: 'grey.900',
                 backgroundColor: theme.palette.grey[50],
                 borderColor: theme.palette.grey[100]
               }}
